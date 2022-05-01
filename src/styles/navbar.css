@@ -74,6 +74,5 @@
 }
 .nav-icons .icon-border{
     padding: 5px;
-    border: 1px solid var(--black);
-    border-radius: 50%;
+    cursor: pointer;
 }

@@ -3,6 +3,7 @@ import '../styles/navbar.css'
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faBasketShopping, faUser, faSearch, faX } from '@fortawesome/free-solid-svg-icons'
+import { Footer } from './Footer';
 export const Navbar = () =>{
     const [isMobileNavOpen,setIsMobileNavOpen]=useState(false)
     return (

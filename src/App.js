@@ -6,12 +6,14 @@ import { Footer } from './components/Footer';
 import './styles/responsive.css'
 function App() {
   return (
-    <header className="App">
-      <Navbar />
-      <Slidebar />
-      <Products />
-      <Footer />
-    </header>
+    <>
+      <header className="App">
+        <Navbar />
+        <Slidebar />
+        <Products />
+        <Footer />
+      </header>
+    </>
   );
 }
 
