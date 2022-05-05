@@ -20,7 +20,7 @@ export const Slidebar = ()=>{
                                     <button>SHOP</button>
                                 </div>
                                 <div className="slide-right">
-                                    <img src={el}/>
+                                    <img src={el} alt="slide" />
                                 </div>
                             </div>
                         </div>

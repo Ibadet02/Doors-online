@@ -3,8 +3,8 @@ import '../styles/navbar.css'
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faBasketShopping, faUser, faSearch, faX } from '@fortawesome/free-solid-svg-icons'
-import { Footer } from './Footer';
-export const Navbar = () =>{
+import { Link } from 'react-router-dom';
+export const Navbar = ({numberOfProducts}) =>{
     const [isMobileNavOpen,setIsMobileNavOpen]=useState(false)
     return (
         <nav className="navbar">
@@ -15,7 +15,7 @@ export const Navbar = () =>{
                         <span onClick={()=>setIsMobileNavOpen(false)} style={{cursor:"pointer"}}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></span>
                     </div>
                     <div className="mobile-nav-menus">
-                        <a href="#">HOME</a>
+                        <Link to={"/"}>HOME</Link>
                         <a href="#">CATEGORY</a>
                         <a href="#">NEWS</a>
                         <a href="#">CONTACT</a>
@@ -29,14 +29,19 @@ export const Navbar = () =>{
                 </div>
                 <div className="nav-menu">
                     <div className="menu-names">
-                        <a href="#">Home</a>
+                        <Link to={"/"}>Home</Link>
                         <a href="#">About</a>
                         <a href="#">News</a>
                         <a href="#">Contact</a>
                     </div>
                 </div>
                 <div className="nav-icons">
-                    <div className="icon-border"><FontAwesomeIcon icon={faBasketShopping}></FontAwesomeIcon></div>
+                    <Link to={"/basket"}>
+                        <div className="icon-border">
+                            <span className='product-count'>{numberOfProducts}</span>
+                            <FontAwesomeIcon color='black' icon={faBasketShopping}></FontAwesomeIcon>
+                        </div>
+                    </Link>
                     <div className="icon-border"><FontAwesomeIcon icon={faUser}></FontAwesomeIcon></div>
                     <div className="icon-border"><FontAwesomeIcon icon={faSearch}></FontAwesomeIcon></div>
                 </div>

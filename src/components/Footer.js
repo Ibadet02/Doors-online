@@ -14,11 +14,11 @@ export const Footer = () =>{
                 {
                     footerLinks.map((el,index)=>{
                         return (
-                            <div className='footer-box'>
+                            <div className='footer-box' key={index}>
                                 {
                                     el.map((link,i)=>{
                                         return (
-                                            i === 0?<h3>{link}</h3>:<a href='#'>{link}</a>
+                                            i === 0?<h3 key={i}>{link}</h3>:<a href='#' key={i}>{link}</a>
                                         )
                                     })
                                 }
