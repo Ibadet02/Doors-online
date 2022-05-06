@@ -35,6 +35,10 @@
     padding: 1.6rem 10px;
     background-color: var(--reddish);
 }
+.mobile-nav-top a{
+    text-decoration: none;
+    color: var(--black);
+}
 .mobile-nav-menus{
     display: flex;
     flex-direction: column;

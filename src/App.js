@@ -22,10 +22,7 @@ import p12 from './assets/product9.jpg'
 export const App = () => {
   const allDoors=[[p1,"1254$"],[p2,"1250$"],[p3,"1159$"],[p4,"2000$"],[p5,"1598$"],[p6,"1133$"],[p7,"1477$"],[p8,"1875$"],[p9,"1791$"],[p10,"1666$"],[p11,"2254$"],[p12,"1300$"]]
 
-  const [displayProduct, setDisplayProduct] = useState([
-    false,false,false,false,false,false,false,false,false,false,false,false
-    // new Array(12).fill(false)
-  ])
+  const [displayProduct, setDisplayProduct] = useState(Array(allDoors.length).fill(false))
   const [inputData,setInputData] = useState(
         {
             productCount1:"0",
@@ -50,7 +47,7 @@ export const App = () => {
             [event.target.name]:event.target.value
         }
     })
-}
+  }
 const handleButton = (number,index) =>{
   setInputData(prev=>{
       return {
@@ -65,7 +62,7 @@ const handleButton = (number,index) =>{
       return Object.values(inputData).reduce((a,b)=>Number(a)+Number(b))
     })
   },Object.values(inputData))
-  const [productNumber,setProductNumber] = useState(0)
+  // const [productNumber,setProductNumber] = useState(0)
   const addToChartClicked = (index)=>{
     setInputData(prev=>{
         return {
@@ -97,19 +94,22 @@ const handleButton = (number,index) =>{
       <Router>
         <Navbar numberOfProducts={numberOfProducts}  />
         <Routes>
-          <Route path='/' element={<><Slidebar /><Products allDoors={allDoors} showProduct={index=> addToChartClicked(index)} /><Footer /></>}/>
-          <Route path='/basket' element={<Basket 
-          productCount={inputData}
-          allDoors={allDoors}
-          showThisItem={displayProduct}
-          throwToTrash={index=>deleteProduct(index)}
-          numberOfProducts={number=>setProductNumber(number)}
-          handleButton={(number,index)=>handleButton(number,index)}
-          handleChange={(number,index)=>handleChange(number,index)}
-          inputData={inputData}
-          />}
+          <Route path='/' element={<><Slidebar /><Products allDoors={allDoors} showProduct={index=> addToChartClicked(index)} /></>}/>
+          <Route path='/basket' element={
+          <Basket 
+            // productCount={inputData}
+            allDoors={allDoors}
+            showThisItem={displayProduct}
+            throwToTrash={index=>deleteProduct(index)}
+            // numberOfProducts={number=>setProductNumber(number)}
+            handleButton={(number,index)=>handleButton(number,index)}
+            handleChange={(number,index)=>handleChange(number,index)}
+            inputData={inputData}
+          />
+          }
           />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

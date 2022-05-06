@@ -1,8 +1,8 @@
-import {useState, useEffect} from "react";
+// import {useState, useEffect} from "react";
 import '../styles/basket.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
-export const Basket = ({allDoors, showThisItem, productCount,throwToTrash,numberOfProducts,handleButton, handleChange, inputData}) =>{
+export const Basket = ({allDoors, showThisItem,throwToTrash,handleButton, handleChange, inputData}) =>{
     const isEmpty = showThisItem.every(el=>{
         return el===false
     })
@@ -37,7 +37,7 @@ export const Basket = ({allDoors, showThisItem, productCount,throwToTrash,number
                                     </button>
                                 </div>
                                 <button onClick={()=>throwToTrash(index)} className="trash-button">
-                                    <FontAwesomeIcon className="trash" size="2x" width={"2.2rem"} height={"2.4rem"} icon={faTrash}></FontAwesomeIcon>
+                                    <FontAwesomeIcon color='red' className="trash" size="2x" width={"2.2rem"} height={"2.4rem"} icon={faTrash}></FontAwesomeIcon>
                                 </button>
                             </div>
                         )

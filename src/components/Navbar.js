@@ -11,7 +11,9 @@ export const Navbar = ({numberOfProducts}) =>{
             <div className="nav-container">
                 <div className={`mobile-nav ${isMobileNavOpen?"open":""}`}>
                     <div className="mobile-nav-top">
+                    <Link to={'/'}>
                         <span style={{fontWeight:"900"}}>DOORS</span>
+                    </Link>
                         <span onClick={()=>setIsMobileNavOpen(false)} style={{cursor:"pointer"}}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></span>
                     </div>
                     <div className="mobile-nav-menus">
@@ -25,7 +27,7 @@ export const Navbar = ({numberOfProducts}) =>{
                     <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
                 </div>
                 <div className="nav-logo">
-                    <a href="#"><h1>DOORS</h1></a>
+                    <Link to={'/'}><h1>DOORS</h1></Link>
                 </div>
                 <div className="nav-menu">
                     <div className="menu-names">
